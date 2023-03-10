@@ -35,7 +35,8 @@ def analisys(filename):
 
 def confusion_matrix(df):
     #Import data
-    corr = df.corr() #osx need (numeric_only=True)
+    data = df
+    corr = data.corr() #osx need (numeric_only=True)
 
     #Print data
     #print(data.corr())
