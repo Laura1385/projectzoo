@@ -1,10 +1,11 @@
-###### Requirements without Version Specifiers ######
+###### Requirements with Version Specifiers ######
 
-numpy
-pandas
-seaborn
-matplotlib
-plotly_express
-squarify
-scikit-learn
-scipy
+matplotlib==3.7.1
+numpy==1.24.2
+pandas==1.5.3
+plotly==5.13.1
+scikit_learn==1.2.2 #verrificare versione
+scipy==1.5.2
+seaborn==0.12.2
+squarify==0.4.3
+googletrans==3.1.0a0

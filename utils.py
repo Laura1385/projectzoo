@@ -52,3 +52,21 @@ def confusion_matrix(df):
     dataplot = sns.heatmap(corr, mask=mask, center=0, annot=True, annot_kws={'size': 8}, fmt='.1f', cmap=cmap, linewidths=.35)
     plt.title(f"Correlation Matrix Animals", fontsize=15)
     plt.show()
+    
+def update_animal_name(df, old_name, new_name):
+    index = df.index[df['animal_name (nome_animale)'].str.startswith(old_name)]
+    if len(index) > 0:
+        old_value = df.at[index[0], 'animal_name (nome_animale)']
+        new_full_name = old_value.replace(old_name, new_name)
+        df.at[index[0], 'animal_name (nome_animale)'] = new_full_name
+        print(f"Ho modificato '{old_value}' con '{new_full_name}'")
+    else:
+        print(f"Nessun animale trovato che inizi con '{old_name}'")
+
+def modify_column(df, animal_column, column_to_modify, values_to_modify):
+    for animal, value in values_to_modify.items():
+        # values_to_modify is a dictionary with animal's name like keys to modify and their new values like value
+        df.loc[df[animal_column] == animal, column_to_modify] = value
+        print("Fatto!")
+
+
