@@ -76,7 +76,7 @@ seahorse (cavalluccio marino),0,0,1,0,0,1,0,0,1,0,1,0,1,0,4
 seal (foca),1,0,0,1,0,1,1,1,1,1,1,0,0,1,1
 sealion (leone marino),1,0,0,1,0,1,1,1,1,1,1,0,1,1,1
 seasnake (serpente di mare),0,0,1,0,0,1,1,1,1,0,0,0,1,0,3
-seawasp (medusa),0,0,1,0,0,1,1,0,0,0,0,0,0,0,7
+seawasp (seawasp),0,0,1,0,0,1,1,0,0,0,0,0,0,0,7
 skimmer (uccello skimmer),0,1,1,0,1,1,1,0,1,1,0,2,1,0,2
 skua (uccello skua),0,1,1,0,1,1,1,0,1,1,0,2,1,0,2
 slowworm (orbettino),0,0,1,0,0,0,1,1,1,1,0,0,1,0,3
