@@ -1,10 +1,12 @@
 ###### Requirements with Version Specifiers ######
 
-matplotlib==3.7.1
-numpy==1.24.2
+numpy==1.24.1
 pandas==1.5.3
-plotly==5.13.1
-scikit_learn==1.2.2 #verificare versione
-scipy==1.5.2
 seaborn==0.12.2
-googletrans==3.1.0a0
+matplotlib==3.6.3
+plotly==5.13.1
+plotly-express==0.4.1
+scikit-learn==1.2.2 
+scipy==1.10.1
+googletrans==3.1.0a0  #googletrans==3.1.0-alpha
+
