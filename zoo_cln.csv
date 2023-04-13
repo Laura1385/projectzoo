@@ -1,102 +1,102 @@
-animal_name (nome_animale),hair (pelliccia),feathers (piume),eggs (uova),milk (latte),airborne (volante),aquatic (acquatico),predator (predatore),toothed (dentato),backbone (vertebrato),breathes (respira),fins (pinne),legs (zampe),tail (coda),catsize (catsize),class_type (tipo_classe)
-aardvark (oritteropo),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-antelope (antilope),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-bass (persico),0,0,1,0,0,1,1,1,1,0,1,0,1,0,4
-bear (orso),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-boar (cinghiale),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-buffalo (bufalo),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-calf (vitello),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-carp (carpa),0,0,1,0,0,1,0,0,1,0,1,0,1,0,4
-catfish (pesce gatto),0,0,1,0,0,1,1,1,1,0,1,0,1,0,4
-cavy (cavia),1,0,0,1,0,0,0,1,1,1,0,4,0,0,1
-cheetah (ghepardo),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-chicken (pollo),0,1,1,0,1,0,0,0,1,1,0,2,1,0,2
-chub (pesce cavedano),0,0,1,0,0,1,1,1,1,0,1,0,1,0,4
-clam (mollusco),0,0,1,0,0,1,0,0,0,0,0,0,0,0,7
-crab (granchio),0,0,1,0,0,1,1,0,0,0,0,10,0,0,7
-crayfish (gambero),0,0,1,0,0,1,1,0,0,0,0,10,0,0,7
-crow (corvo),0,1,1,0,1,0,1,0,1,1,0,2,1,0,2
-deer (cervo),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-dogfish (squalo),0,0,1,0,0,1,1,1,1,0,1,0,1,1,4
-dolphin (delfino),0,0,0,1,0,1,1,1,1,1,1,0,1,1,1
-dove (piccione),0,1,1,0,1,0,0,0,1,1,0,2,1,0,2
-duck (anatra),0,1,1,0,1,1,0,0,1,1,0,2,1,0,2
-elephant (elefante),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-flamingo (fenicottero),0,1,1,0,1,0,0,0,1,1,0,2,1,1,2
-flea (pulce),0,0,1,0,0,0,0,0,0,1,0,6,0,0,6
-frog (rana),0,0,1,0,0,1,1,0,1,1,0,4,0,0,5
-frog2 (rana vel),0,0,1,0,0,1,1,0,1,1,0,4,0,0,5
-fruitbat (volpe volante),1,0,0,1,1,0,0,1,1,1,0,2,0,0,1
-giraffe (giraffa),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-girl (ragazza),1,0,0,1,0,0,1,1,1,1,0,2,0,1,1
-gnat (moscerino),0,0,1,0,1,0,0,0,0,1,0,6,0,0,6
-goat (capra),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-gorilla (gorilla),1,0,0,1,0,0,0,1,1,1,0,4,0,1,1
-gull (gabbiano),0,1,1,0,1,1,1,0,1,1,0,2,1,0,2
-haddock (pesce eglefino),0,0,1,0,0,1,0,1,1,0,1,0,1,0,4
-hamster (criceto),1,0,0,1,0,0,0,1,1,1,0,4,1,0,1
-hare (lepre),1,0,0,1,0,0,0,1,1,1,0,4,1,0,1
-hawk (falco),0,1,1,0,1,0,1,0,1,1,0,2,1,0,2
-herring (aringa),0,0,1,0,0,1,1,1,1,0,1,0,1,0,4
-honeybee (ape),1,0,1,0,1,0,0,0,0,1,0,6,0,0,6
-housefly (mosca domestica),1,0,1,0,1,0,0,0,0,1,0,6,0,0,6
-kiwi (uccello kiwi),0,1,1,0,0,0,1,0,1,1,0,2,0,0,2
-ladybird (coccinella),0,0,1,0,1,0,1,0,0,1,0,6,0,0,6
-lark (allodola),0,1,1,0,1,0,0,0,1,1,0,2,1,0,2
-leopard (leopardo),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-lion (leone),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-lobster (aragosta),0,0,1,0,0,1,1,0,0,0,0,6,1,0,7
-lynx (lince),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-mink (visone),1,0,0,1,0,1,1,1,1,1,0,4,1,1,1
-mole (talpa),1,0,0,1,0,0,1,1,1,1,0,4,1,0,1
-mongoose (mangusta),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-moth (falena),1,0,1,0,1,0,0,0,0,1,0,6,0,0,6
-newt (tritone),0,0,1,0,0,1,1,1,1,1,0,4,1,0,5
-octopus (polpo),0,0,1,0,0,1,1,0,0,0,0,8,0,1,7
-opossum (opossum),1,0,0,1,0,0,1,1,1,1,0,4,1,0,1
-oryx (orice),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-ostrich (struzzo),0,1,1,0,0,0,0,0,1,1,0,2,1,1,2
-parakeet (parrocchetto),0,1,1,0,1,0,0,0,1,1,0,2,1,0,2
-penguin (pinguino),0,1,1,0,0,1,1,0,1,1,0,2,1,1,2
-pheasant (fagiano),0,1,1,0,1,0,0,0,1,1,0,2,1,0,2
-pike (luccio),0,0,1,0,0,1,1,1,1,0,1,0,1,1,4
-piranha (piranha),0,0,1,0,0,1,1,1,1,0,1,0,1,0,4
-pitviper (vipera),0,0,1,0,0,0,1,1,1,1,0,0,1,0,3
-platypus (ornitorinco),1,0,1,1,0,1,1,0,1,1,0,4,1,1,1
-polecat (puzzola),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-pony (pony),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-porpoise (focena),0,0,0,1,0,1,1,1,1,1,1,0,1,1,1
-puma (puma),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-pussycat (micio),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-raccoon (procione),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-reindeer (renna),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-rhea (uccello nandù),0,1,1,0,0,0,1,0,1,1,0,2,1,1,2
-scorpion (scorpione),0,0,0,0,0,0,1,0,0,1,0,8,1,0,7
-seahorse (cavalluccio marino),0,0,1,0,0,1,0,0,1,0,1,0,1,0,4
-seal (foca),1,0,0,1,0,1,1,1,1,1,1,0,0,1,1
-sealion (leone marino),1,0,0,1,0,1,1,1,1,1,1,0,1,1,1
-seasnake (serpente di mare),0,0,1,0,0,1,1,1,1,0,0,0,1,0,3
-seawasp (seawasp),0,0,1,0,0,1,1,0,0,0,0,0,0,0,7
-skimmer (uccello skimmer),0,1,1,0,1,1,1,0,1,1,0,2,1,0,2
-skua (uccello skua),0,1,1,0,1,1,1,0,1,1,0,2,1,0,2
-slowworm (orbettino),0,0,1,0,0,0,1,1,1,1,0,0,1,0,3
-slug (lumaca),0,0,1,0,0,0,0,0,0,1,0,0,0,0,7
-sole (sogliola),0,0,1,0,0,1,0,1,1,0,1,0,1,0,4
-sparrow (passero),0,1,1,0,1,0,0,0,1,1,0,2,1,0,2
-squirrel (scoiattolo),1,0,0,1,0,0,0,1,1,1,0,2,1,0,1
-starfish (stella marina),0,0,1,0,0,1,1,0,0,0,0,5,0,0,7
-stingray (razza),0,0,1,0,0,1,1,1,1,0,1,0,1,1,4
-swan (cigno),0,1,1,0,1,1,0,0,1,1,0,2,1,1,2
-termite (termite),0,0,1,0,0,0,0,0,0,1,0,6,0,0,6
-toad (rospo),0,0,1,0,0,1,0,1,1,1,0,4,0,0,5
-tortoise (tartaruga),0,0,1,0,0,0,0,0,1,1,0,4,1,1,3
-tuatara (tuatara),0,0,1,0,0,0,1,1,1,1,0,4,1,0,3
-tuna (tonno),0,0,1,0,0,1,1,1,1,0,1,0,1,1,4
-vampire (pipistrello),1,0,0,1,1,0,0,1,1,1,0,2,1,0,1
-vole (roditore),1,0,0,1,0,0,0,1,1,1,0,4,1,0,1
-vulture (avvoltoio),0,1,1,0,1,0,1,0,1,1,0,2,1,1,2
-wallaby (canguro),1,0,0,1,0,0,0,1,1,1,0,4,1,1,1
-wasp (vespa),1,0,1,0,1,0,0,0,0,1,0,6,0,0,6
-wolf (lupo),1,0,0,1,0,0,1,1,1,1,0,4,1,1,1
-worm (verme),0,0,1,0,0,0,0,0,0,1,0,0,0,0,7
-wren (uccello scricciolo),0,1,1,0,1,0,0,0,1,1,0,2,1,0,2
+animal_name (nome_animale),hair (pelliccia),feathers (piume),eggs (uova),milk (latte),airborne (volante),aquatic (acquatico),predator (predatore),toothed (dentato),backbone (vertebrato),breathes (respira),venomous (velenoso),fins (pinne),legs (zampe),tail (coda),domestic (domestico),catsize (catsize),class_type (tipo_classe)
+aardvark (oritteropo),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+antelope (antilope),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,1,1
+bass (persico),0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,0,4
+bear (orso),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+boar (cinghiale),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,1,1
+buffalo (bufalo),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,1,1
+calf (vitello),1,0,0,1,0,0,0,1,1,1,0,0,4,1,1,1,1
+carp (carpa),0,0,1,0,0,1,0,0,1,0,0,1,0,1,1,0,4
+catfish (pesce gatto),0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,0,4
+cavy (cavia),1,0,0,1,0,0,0,1,1,1,0,0,4,0,1,0,1
+cheetah (ghepardo),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+chicken (pollo),0,1,1,0,1,0,0,0,1,1,0,0,2,1,1,0,2
+chub (pesce cavedano),0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,0,4
+clam (mollusco),0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,7
+crab (granchio),0,0,1,0,0,1,1,0,0,0,0,0,10,0,0,0,7
+crayfish (gambero),0,0,1,0,0,1,1,0,0,0,0,0,10,0,0,0,7
+crow (corvo),0,1,1,0,1,0,1,0,1,1,0,0,2,1,0,0,2
+deer (cervo),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,1,1
+dogfish (squalo),0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,1,4
+dolphin (delfino),0,0,0,1,0,1,1,1,1,1,0,1,0,1,0,1,1
+dove (piccione),0,1,1,0,1,0,0,0,1,1,0,0,2,1,1,0,2
+duck (anatra),0,1,1,0,1,1,0,0,1,1,0,0,2,1,0,0,2
+elephant (elefante),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,1,1
+flamingo (fenicottero),0,1,1,0,1,0,0,0,1,1,0,0,2,1,0,1,2
+flea (pulce),0,0,1,0,0,0,0,0,0,1,0,0,6,0,0,0,6
+frog (rana),0,0,1,0,0,1,1,0,1,1,0,0,4,0,0,0,5
+frog2 (rana vel),0,0,1,0,0,1,1,0,1,1,1,0,4,0,0,0,5
+fruitbat (volpe volante),1,0,0,1,1,0,0,1,1,1,0,0,2,0,0,0,1
+giraffe (giraffa),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,1,1
+girl (ragazza),1,0,0,1,0,0,1,1,1,1,0,0,2,0,1,1,1
+gnat (moscerino),0,0,1,0,1,0,0,0,0,1,0,0,6,0,0,0,6
+goat (capra),1,0,0,1,0,0,0,1,1,1,0,0,4,1,1,1,1
+gorilla (gorilla),1,0,0,1,0,0,0,1,1,1,0,0,4,0,0,1,1
+gull (gabbiano),0,1,1,0,1,1,1,0,1,1,0,0,2,1,0,0,2
+haddock (pesce eglefino),0,0,1,0,0,1,0,1,1,0,0,1,0,1,0,0,4
+hamster (criceto),1,0,0,1,0,0,0,1,1,1,0,0,4,1,1,0,1
+hare (lepre),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,0,1
+hawk (falco),0,1,1,0,1,0,1,0,1,1,0,0,2,1,0,0,2
+herring (aringa),0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,0,4
+honeybee (ape),1,0,1,0,1,0,0,0,0,1,1,0,6,0,1,0,6
+housefly (mosca domestica),1,0,1,0,1,0,0,0,0,1,0,0,6,0,0,0,6
+kiwi (uccello kiwi),0,1,1,0,0,0,1,0,1,1,0,0,2,0,0,0,2
+ladybird (coccinella),0,0,1,0,1,0,1,0,0,1,0,0,6,0,0,0,6
+lark (allodola),0,1,1,0,1,0,0,0,1,1,0,0,2,1,0,0,2
+leopard (leopardo),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+lion (leone),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+lobster (aragosta),0,0,1,0,0,1,1,0,0,0,0,0,6,1,0,0,7
+lynx (lince),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+mink (visone),1,0,0,1,0,1,1,1,1,1,0,0,4,1,0,1,1
+mole (talpa),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,0,1
+mongoose (mangusta),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+moth (falena),1,0,1,0,1,0,0,0,0,1,0,0,6,0,0,0,6
+newt (tritone),0,0,1,0,0,1,1,1,1,1,0,0,4,1,0,0,5
+octopus (polpo),0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,1,7
+opossum (opossum),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,0,1
+oryx (orice),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,1,1
+ostrich (struzzo),0,1,1,0,0,0,0,0,1,1,0,0,2,1,0,1,2
+parakeet (parrocchetto),0,1,1,0,1,0,0,0,1,1,0,0,2,1,1,0,2
+penguin (pinguino),0,1,1,0,0,1,1,0,1,1,0,0,2,1,0,1,2
+pheasant (fagiano),0,1,1,0,1,0,0,0,1,1,0,0,2,1,0,0,2
+pike (luccio),0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,1,4
+piranha (piranha),0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,0,4
+pitviper (vipera),0,0,1,0,0,0,1,1,1,1,1,0,0,1,0,0,3
+platypus (ornitorinco),1,0,1,1,0,1,1,0,1,1,0,0,4,1,0,1,1
+polecat (puzzola),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+pony (pony),1,0,0,1,0,0,0,1,1,1,0,0,4,1,1,1,1
+porpoise (focena),0,0,0,1,0,1,1,1,1,1,0,1,0,1,0,1,1
+puma (puma),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+pussycat (micio),1,0,0,1,0,0,1,1,1,1,0,0,4,1,1,1,1
+raccoon (procione),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+reindeer (renna),1,0,0,1,0,0,0,1,1,1,0,0,4,1,1,1,1
+rhea (uccello nandù),0,1,1,0,0,0,1,0,1,1,0,0,2,1,0,1,2
+scorpion (scorpione),0,0,0,0,0,0,1,0,0,1,1,0,8,1,0,0,7
+seahorse (cavalluccio marino),0,0,1,0,0,1,0,0,1,0,0,1,0,1,0,0,4
+seal (foca),1,0,0,1,0,1,1,1,1,1,0,1,0,0,0,1,1
+sealion (leone marino),1,0,0,1,0,1,1,1,1,1,0,1,0,1,0,1,1
+seasnake (serpente di mare),0,0,1,0,0,1,1,1,1,0,1,0,0,1,0,0,3
+seawasp (medusa),0,0,1,0,0,1,1,0,0,0,1,0,0,0,0,0,7
+skimmer (uccello skimmer),0,1,1,0,1,1,1,0,1,1,0,0,2,1,0,0,2
+skua (uccello skua),0,1,1,0,1,1,1,0,1,1,0,0,2,1,0,0,2
+slowworm (orbettino),0,0,1,0,0,0,1,1,1,1,0,0,0,1,0,0,3
+slug (lumaca),0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,7
+sole (sogliola),0,0,1,0,0,1,0,1,1,0,0,1,0,1,0,0,4
+sparrow (passero),0,1,1,0,1,0,0,0,1,1,0,0,2,1,0,0,2
+squirrel (scoiattolo),1,0,0,1,0,0,0,1,1,1,0,0,2,1,0,0,1
+starfish (stella marina),0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,7
+stingray (razza),0,0,1,0,0,1,1,1,1,0,1,1,0,1,0,1,4
+swan (cigno),0,1,1,0,1,1,0,0,1,1,0,0,2,1,0,1,2
+termite (termite),0,0,1,0,0,0,0,0,0,1,0,0,6,0,0,0,6
+toad (rospo),0,0,1,0,0,1,0,1,1,1,0,0,4,0,0,0,5
+tortoise (tartaruga),0,0,1,0,0,0,0,0,1,1,0,0,4,1,0,1,3
+tuatara (tuatara),0,0,1,0,0,0,1,1,1,1,0,0,4,1,0,0,3
+tuna (tonno),0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,1,4
+vampire (pipistrello),1,0,0,1,1,0,0,1,1,1,0,0,2,1,0,0,1
+vole (roditore),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,0,1
+vulture (avvoltoio),0,1,1,0,1,0,1,0,1,1,0,0,2,1,0,1,2
+wallaby (canguro),1,0,0,1,0,0,0,1,1,1,0,0,4,1,0,1,1
+wasp (vespa),1,0,1,0,1,0,0,0,0,1,1,0,6,0,0,0,6
+wolf (lupo),1,0,0,1,0,0,1,1,1,1,0,0,4,1,0,1,1
+worm (verme),0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,7
+wren (uccello scricciolo),0,1,1,0,1,0,0,0,1,1,0,0,2,1,0,0,2

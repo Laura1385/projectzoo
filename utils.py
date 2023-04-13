@@ -11,7 +11,6 @@ from sklearn.manifold import TSNE
 from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
 from sklearn.metrics import silhouette_samples
 from sklearn.decomposition import PCA           #lo usi o no?
-from scipy.cluster.hierarchy import dendrogram  #lo usi o no?
 
 def border_msg(msg):
     row = len(msg)
@@ -56,15 +55,15 @@ def update_animal_name(df, old_name, new_name):
         old_value = df.at[index[0], 'animal_name (nome_animale)']
         new_full_name = old_value.replace(old_name, new_name)
         df.at[index[0], 'animal_name (nome_animale)'] = new_full_name
-        print(f"Ho modificato '{old_value}' con '{new_full_name}'' ")
+        print(f"Ho modificato '{old_value}' con '{new_full_name}' ")
     else:
-        print(f"Nessun animale trovato che inizi con '{old_name}'' ")
+        print(f"Nessun animale trovato che inizi con '{old_name}' ")
 
 def modify_column(df, animal_column, column_to_modify, values_to_modify):
     for animal, value in values_to_modify.items():
         # values_to_modify is a dictionary with animal's name like keys to modify and their new values like value
         df.loc[df[animal_column] == animal, column_to_modify] = value
-        print("Fatto!")
+    print("Le modifiche indicate sono state apportate")
         
 def t_sne(data, n_components=2, n_iter=500, n_iter_without_progress=150, n_jobs=2, random_state=0):
     tsne = TSNE(n_components=n_components, 
@@ -94,11 +93,11 @@ def km_clust(X, n_clusters, init, n_init=10, max_iter=300, tol=1e-4, random_stat
                     init=init, n_init=n_init, 
                     max_iter=max_iter, tol=tol, 
                     random_state=random_state)
-    y_km_clustering = kmeans.fit_predict(X)
+    y_km_clustering = kmeans.fit_predict(X)+1 #correct labels(now start from 1, not 0)
     
     #Stampa le prime 10 istanze clusterizzate e le etichette univoche dei cluster.
     #print(f"Primi 10 punti clusterizzati: {y_km_clustering[:10]}")
-    #print(f"Etichette univoche dei cluster: {np.unique(y_km_clustering)}")
+    print(f"Etichette univoche dei cluster: {np.unique(y_km_clustering)}")
     return kmeans, y_km_clustering
 
 def plot_kmean(X, labels, centroids, title, ax=None):
@@ -113,7 +112,7 @@ def plot_kmean(X, labels, centroids, title, ax=None):
             marker='o',
             s=60,
             color=plt.cm.tab10(label),
-            alpha=0.8
+            alpha=0.8,
         )
     if len(centroids) > 0:
         ax.scatter(centroids[:,0], centroids[:,1],
@@ -137,13 +136,13 @@ def results_group(data, df, y, nome_algoritmo):
     new_list = [tuple(x.split(",")) for x in results]
 
     #newdf with 2 coloums
-    df_cl = pd.DataFrame(new_list, columns=['Animal', 'Clusters'])
+    df_cl = pd.DataFrame(new_list, columns=['Animal', 'Pred Labels'])
 
     #animal in every cluster
-    group_cl = df_cl.groupby(['Clusters'])
+    group_cl = df_cl.groupby(['Pred Labels'])
     print('Algoritmo', nome_algoritmo, '\n')
     for num, (nome, gruppo) in enumerate(group_cl):
-        print('Cluster', num+1)
+        print('Pred Labels', num+1)
         animali = list(gruppo['Animal'])
         for x in animali:
             print(x)
@@ -182,12 +181,14 @@ def agglomerative_clust(X, linkage, n_clusters=7, affinity='euclidean'):
     ac = AgglomerativeClustering(n_clusters=n_clusters,
                                  affinity=affinity,
                                  linkage=linkage)
-    y_ac_blob = ac.fit_predict(X)
+    y_ac_blob = ac.fit_predict(X)+1 #correct labels(now start from 1, not 0)
+    print(f"Etichette univoche dei cluster: {np.unique(y_ac_blob)}")
     return ac, y_ac_blob
 
 def dbscan_clust(X, eps= 0.5, min_samples= 5, metric='euclidean'):
     dbscan = DBSCAN(eps=eps, 
                     min_samples=min_samples, 
                     metric='euclidean')
-    labels = dbscan.fit_predict(X)
+    labels = dbscan.fit_predict(X)+2 #correct labels(now start from 1, not 0)
+    print(f"Etichette univoche dei cluster: {np.unique(labels)}")
     return dbscan, labels
