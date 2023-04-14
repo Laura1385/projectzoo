@@ -1,0 +1,70 @@
+Report del 14/4/2023 ore 15:12
+
+Analisi del file:
+
+class.csv
+
+
+Informazioni sul DataFrame:<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 7 entries, 0 to 6
+Data columns (total 4 columns):
+ #   Column                             Non-Null Count  Dtype 
+---  ------                             --------------  ----- 
+ 0   Class_Number                       7 non-null      int64 
+ 1   Number_Of_Animal_Species_In_Class  7 non-null      int64 
+ 2   Class_Type                         7 non-null      object
+ 3   Animal_Names                       7 non-null      object
+dtypes: int64(2), object(2)
+memory usage: 352.0+ bytes
+
+--------------------------------------------------------------------
+
+Numero di osservazioni (righe) x caratteristiche (colonne):(7, 4)
+
+---------------------------------------------------------------------
+
+
+Anteprima del DataFrame:
+   Class_Number  Number_Of_Animal_Species_In_Class    Class_Type  \
+0             1                                 41        Mammal   
+1             2                                 20          Bird   
+2             3                                  5       Reptile   
+3             4                                 13          Fish   
+4             5                                  4     Amphibian   
+5             6                                  8           Bug   
+6             7                                 10  Invertebrate   
+
+                                        Animal_Names  
+0  aardvark, antelope, bear, boar, buffalo, calf,...  
+1  chicken, crow, dove, duck, flamingo, gull, haw...  
+2    pitviper, seasnake, slowworm, tortoise, tuatara  
+3  bass, carp, catfish, chub, dogfish, haddock, h...  
+4                             frog, frog, newt, toad  
+5  flea, gnat, honeybee, housefly, ladybird, moth...  
+6  clam, crab, crayfish, lobster, octopus, scorpi...  
+
+
+---------------------------------------------------------------------
+
+
+Statistiche di base:
+       Class_Number  Number_Of_Animal_Species_In_Class
+count      7.000000                           7.000000
+mean       4.000000                          14.428571
+std        2.160247                          12.895182
+min        1.000000                           4.000000
+25%        2.500000                           6.500000
+50%        4.000000                          10.000000
+75%        5.500000                          16.500000
+max        7.000000                          41.000000
+
+
+----------------------------------------------------------------------
+
+Analisi variabili:
+Class_Number                         7
+Number_Of_Animal_Species_In_Class    7
+Class_Type                           7
+Animal_Names                         7
+dtype: int64
+

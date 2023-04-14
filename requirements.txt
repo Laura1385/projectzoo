@@ -9,4 +9,4 @@ plotly-express==0.4.1
 scikit-learn==1.2.2 
 scipy==1.10.1
 googletrans==3.1.0a0  #googletrans==3.1.0-alpha
-
+kaleido==0.2.1

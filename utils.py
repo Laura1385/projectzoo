@@ -1,39 +1,94 @@
+import time
+import sys
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
+import plotly.io as pio 
 import sklearn
 import scipy as sp
-import warnings
-warnings.filterwarnings('ignore')
+import warnings #only for os
+warnings.filterwarnings('ignore') #only for os
+from datetime import datetime
 from sklearn.manifold import TSNE
 from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
 from sklearn.metrics import silhouette_samples
-from sklearn.decomposition import PCA           #lo usi o no?
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics.cluster import pair_confusion_matrix
+from sklearn.metrics import confusion_matrix  ###usato o no?
+
+def chose(csv):
+    if csv == 'class.csv':
+        df_class = pd.read_csv('class.csv')
+        df_zoo = None # se csv è 'class.csv', impostiamo df_zoo a None
+    elif csv == 'zoo.csv':
+        df_zoo = pd.read_csv('zoo.csv') # correggi l'errore qui
+        df_class = None # se csv è 'zoo.csv', impostiamo df_class a None
+    else:
+        df_class = None
+        df_zoo = None
+            
+    choice = ''
+    if not sys.stdin.isatty():  # se script eseguito in modalità batch
+        time.sleep(5)
+    else:  #se script eseguito interattivamente
+        choice = input('Visualizzare l\'analisi(1) \ Salvare l\'analisi in un file.txt(2) \ Entrambe(3)?')
+    
+    if choice == '1' :
+        print('\nEcco l\'analisi: \n')
+        analisys(csv)
+    elif choice == '2':
+        analisys_txt(csv)
+    elif choice == '3':
+        print('\nHai scelto di visualizzare e stampare l\'analisi. \n\nEcco l\'analisi:\n')
+        analisys(csv)
+        analisys_txt(csv)
+    else:
+        print('\nHai scelto di non fare nulla\n')
+    return df_class, df_zoo
 
 def border_msg(msg):
     row = len(msg)
-    h = ''.join(['+'] + ['-' *row] + ['+'])
-    result= h + '\n''|'+msg+'|' '\n' + h
+    h = ''.join(['+'] + ['-' * row] + ['+'])
+    result = h + '\n''|'+msg+'|' '\n' + h
     print(result)
 
-def analisys(filename):
-    df = pd.read_csv(filename,sep=',')
+def analisys(file_scan):
+    df = pd.read_csv(file_scan,sep=',')
     border_msg('Nome File:')
-    print(filename, "\n")
+    print("\n"+ file_scan, "\n")
     border_msg('Informazioni DataFrame:')
     df.info()
     print('\n - Numero di osservazioni (righe) x caratteristiche (colonne):', df.shape, '\n\n')
     print(border_msg('Anteprima del DataFrame:'),df.head(5), '\n')
     print(border_msg('Statistiche di base:'),' ',df.describe(), '\n')
     print(border_msg('Analisi variabili:'),'\n', df.nunique(), '\n\n')
-    dfname= str(filename) 
-    name= dfname[:-4]#take values before the point
-    prefix= 'df_'
-    f = print('Rinomino il DataFrame creato in:', prefix + name)
+    
+def analisys_txt(file_scan):
+    df = pd.read_csv(file_scan,sep=',')
+    current_dateTime = datetime.now()
+    day, month, year = current_dateTime.day, current_dateTime.month, current_dateTime.year
+    time, hour, minute = current_dateTime.time, current_dateTime.hour, current_dateTime.minute
+    
+    namef ='Report_'+ file_scan[:-4] +'.txt'
+    with open(namef, "w") as f:
+        f.write(f"Report del {day}/{month}/{year} ore {hour}:{minute}")
+        f.write('\n\nAnalisi del file:\n')
+        f.write('\n'+ file_scan + '\n\n\n')
+        f.write('Informazioni sul DataFrame:')
+        df.info(buf=f, verbose=True)
+        f.write('\n--------------------------------------------------------------------\n\n')
+        f.write('Numero di osservazioni (righe) x caratteristiche (colonne):' + str(df.shape) + "\n")
+        f.write('\n---------------------------------------------------------------------\n\n\n')
+        f.write('Anteprima del DataFrame:\n' + str(df.head(7)) + '\n\n')
+        f.write('\n---------------------------------------------------------------------\n\n\n')
+        f.write('Statistiche di base:\n' + str(df.describe()) + '\n\n')
+        f.write('\n----------------------------------------------------------------------\n\n')
+        f.write('Analisi variabili:\n' + str(df.nunique()) + '\n\n')   
+    print('\nIl file', namef, 'è stato creato nella directory del progetto')
 
-def confusion_matrix(df):
+def correlation_matrix(df):
     #Import data
     data = df
     corr = data.corr() #osx need (numeric_only=True)
@@ -46,7 +101,7 @@ def confusion_matrix(df):
     #Create correlation palette and heat map
     cmap = sns.color_palette('Spectral_r', as_cmap=True)
     dataplot = sns.heatmap(corr, mask=mask, center=0, annot=True, annot_kws={'size': 8}, fmt='.1f', cmap=cmap, linewidths=.35)
-    plt.title(f'Correlation Matrix Animals', fontsize=15)
+    plt.title('Correlation Matrix Animals', fontsize=15)
     plt.show()
     
 def update_animal_name(df, old_name, new_name):
@@ -192,3 +247,61 @@ def dbscan_clust(X, eps= 0.5, min_samples= 5, metric='euclidean'):
     labels = dbscan.fit_predict(X)+2 #correct labels(now start from 1, not 0)
     print(f"Etichette univoche dei cluster: {np.unique(labels)}")
     return dbscan, labels
+
+def merge(df, results, namecsv=''):   
+    #merge real value from df_zoo e predict value from alforitm's results
+    df_real = df.iloc[:, [0, -1]]
+    df_real = df_real.rename(columns={'animal_name (nome_animale)': 'Animal', 'class_type (tipo_classe)': 'Real Labels'})
+
+    df_pred = results.copy()
+    df_pred['Pred Labels'] = df_pred['Pred Labels'].astype('int64')
+    
+    dfmerged = pd.merge(df_real, df_pred, on='Animal')
+    dfmerged_ord = dfmerged.sort_values('Real Labels') #VALORI ORDINATI
+    namecsv = namecsv + '.csv'
+    dfmerged_ord.to_csv(namecsv, index=False)
+    print('Esportato file',namecsv,'nella directory del progetto')
+    return dfmerged_ord
+
+def plot_res(dfmerge, title):
+    X_features = dfmerge.iloc[: , 0]
+    y_real= dfmerge.iloc[ :, -2] #The Y Label REAL
+    y_predicted= dfmerge.iloc[ :, -1] #The predicted Y-label
+
+    plt.figure(figsize=(17, 4))
+    plt.plot(X_features, y_real, color='blue',label='Real')
+    plt.plot(X_features, y_predicted, color='orange',label='Predict')
+    plt.xticks(rotation=90, fontsize=8) 
+    plt.title(title ,fontsize=18)
+    plt.xlabel('Animal', fontsize=14)
+    plt.ylabel('Cluster', fontsize=14)
+    #add point for each x values
+    plt.scatter(X_features, y_real, color='blue')
+    plt.scatter(X_features, y_predicted, color='orange')
+    plt.legend(fontsize=17)
+    plt.show()
+    return y_real, y_predicted
+
+def accurancy(y_real, y_predicted):
+    acc = accuracy_score(y_real, y_predicted)
+    print("Accuratezza: {:.3f}".format(acc))
+
+    report=classification_report(y_real, y_predicted)
+    print(report)
+
+def pair_conf_matrix(y_real, y_predicted, title):
+    cm = pair_confusion_matrix(y_real, y_predicted)
+    print('Matrix pair confusion\n',cm)
+    
+    cm1 = pair_confusion_matrix(y_real, y_predicted)
+    cm2 = confusion_matrix(y_real, y_predicted)
+    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(10, 5))
+    im1 = ax1.imshow(cm1, cmap='coolwarm')
+    ax1.set_title(title)
+    plt.colorbar(im1, ax=ax1)
+
+    im2 = ax2.imshow(cm2, cmap='bwr')
+    ax2.set_title('Confusion matrix')
+    plt.colorbar(im2, ax=ax2)
+    plt.show()
+    
