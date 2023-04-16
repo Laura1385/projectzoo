@@ -1,0 +1,102 @@
+Animal,Real Labels,Pred Labels
+aardvark (oritteropo),1,6
+gorilla (gorilla),1,3
+hamster (criceto),1,3
+hare (lepre),1,3
+leopard (leopardo),1,6
+lion (leone),1,6
+lynx (lince),1,6
+mink (visone),1,6
+mole (talpa),1,6
+opossum (opossum),1,6
+oryx (orice),1,3
+platypus (ornitorinco),1,6
+polecat (puzzola),1,6
+pony (pony),1,3
+porpoise (focena),1,4
+puma (puma),1,6
+pussycat (gatto),1,6
+raccoon (procione),1,6
+reindeer (renna),1,3
+seal (foca),1,4
+sealion (leone marino),1,4
+squirrel (scoiattolo),1,7
+vampire (pipistrello),1,7
+vole (roditore),1,3
+wallaby (canguro),1,3
+wolf (lupo),1,6
+goat (capra),1,3
+girl (ragazza),1,7
+mongoose (mangusta),1,6
+fruitbat (volpe volante),1,7
+dolphin (delfino),1,4
+giraffe (giraffa),1,3
+elephant (elefante),1,3
+cheetah (ghepardo),1,6
+cavy (cavia),1,3
+calf (vitello),1,3
+deer (cervo),1,3
+buffalo (bufalo),1,3
+boar (cinghiale),1,3
+bear (orso),1,6
+antelope (antilope),1,3
+skua (uccello skua),2,2
+skimmer (uccello skimmer),2,2
+crow (corvo),2,2
+swan (cigno),2,2
+chicken (pollo),2,2
+vulture (avvoltoio),2,2
+pheasant (fagiano),2,2
+penguin (pinguino),2,2
+parakeet (parrocchetto),2,2
+ostrich (struzzo),2,2
+sparrow (passero),2,2
+rhea (uccello nandù),2,2
+wren (uccello scricciolo),2,2
+hawk (falco),2,2
+dove (piccione),2,2
+duck (anatra),2,2
+flamingo (fenicottero),2,2
+gull (gabbiano),2,2
+lark (allodola),2,2
+kiwi (uccello kiwi),2,2
+tortoise (tartaruga),3,7
+seasnake (serpente di mare),3,4
+tuatara (tuatara),3,1
+slowworm (orbettino),3,5
+pitviper (vipera),3,5
+carp (carpa),4,5
+seahorse (cavalluccio marino),4,4
+tuna (tonno),4,4
+catfish (pesce gatto),4,4
+chub (pesce cavedano),4,4
+bass (persico),4,4
+piranha (piranha),4,4
+pike (luccio),4,4
+dogfish (squalo),4,4
+stingray (razza),4,4
+haddock (pesce eglefino),4,5
+sole (sogliola),4,5
+herring (aringa),4,4
+newt (tritone),5,1
+toad (rospo),5,1
+frog2 (rana vel),5,1
+frog (rana),5,1
+housefly (mosca domestica),6,1
+ladybird (coccinella),6,1
+flea (pulce),6,1
+wasp (vespa),6,1
+gnat (moscerino),6,1
+moth (falena),6,1
+termite (termite),6,1
+honeybee (ape),6,1
+seawasp (medusa),7,5
+slug (lumaca),7,5
+octopus (polpo),7,5
+scorpion (scorpione),7,1
+clam (mollusco),7,5
+crayfish (gambero),7,1
+lobster (aragosta),7,1
+worm (verme),7,5
+starfish (stella marina),7,5
+crab (granchio),7,1
