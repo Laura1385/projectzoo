@@ -1,0 +1,102 @@
+Animal,Real Labels,Pred Labels
+aardvark (oritteropo),1,3
+antelope (antilope),1,1
+bass (persico),4,4
+bear (orso),1,3
+boar (cinghiale),1,1
+buffalo (bufalo),1,1
+calf (vitello),1,1
+carp (carpa),4,4
+catfish (pesce gatto),4,4
+cavy (cavia),1,1
+cheetah (ghepardo),1,3
+chicken (pollo),2,2
+chub (pesce cavedano),4,4
+clam (mollusco),7,4
+crab (granchio),7,5
+crayfish (gambero),7,5
+crow (corvo),2,2
+deer (cervo),1,1
+dogfish (squalo),4,4
+dolphin (delfino),1,4
+dove (piccione),2,2
+duck (anatra),2,2
+elephant (elefante),1,1
+flamingo (fenicottero),2,2
+flea (pulce),6,5
+frog (rana),5,6
+frog2 (rana vel),5,6
+fruitbat (volpe volante),1,7
+giraffe (giraffa),1,1
+girl (ragazza),1,7
+gnat (moscerino),6,5
+goat (capra),1,1
+gorilla (gorilla),1,1
+gull (gabbiano),2,2
+haddock (pesce eglefino),4,4
+hamster (criceto),1,1
+hare (lepre),1,1
+hawk (falco),2,2
+herring (aringa),4,4
+honeybee (ape),6,5
+housefly (mosca domestica),6,5
+kiwi (uccello kiwi),2,2
+ladybird (coccinella),6,5
+lark (allodola),2,2
+leopard (leopardo),1,3
+lion (leone),1,3
+lobster (aragosta),7,5
+lynx (lince),1,3
+mink (visone),1,3
+mole (talpa),1,1
+mongoose (mangusta),1,3
+moth (falena),6,5
+newt (tritone),5,6
+octopus (polpo),7,4
+opossum (opossum),1,1
+oryx (orice),1,1
+ostrich (struzzo),2,2
+parakeet (parrocchetto),2,2
+penguin (pinguino),2,2
+pheasant (fagiano),2,2
+pike (luccio),4,4
+piranha (piranha),4,4
+pitviper (vipera),3,4
+platypus (ornitorinco),1,3
+polecat (puzzola),1,3
+pony (pony),1,1
+porpoise (focena),1,4
+puma (puma),1,3
+pussycat (gatto),1,1
+raccoon (procione),1,3
+reindeer (renna),1,1
+rhea (uccello nandù),2,2
+scorpion (scorpione),7,5
+seahorse (cavalluccio marino),4,4
+seal (foca),1,4
+sealion (leone marino),1,4
+seasnake (serpente di mare),3,4
+seawasp (medusa),7,4
+skimmer (uccello skimmer),2,2
+skua (uccello skua),2,2
+slowworm (orbettino),3,4
+slug (lumaca),7,4
+sole (sogliola),4,4
+sparrow (passero),2,2
+squirrel (scoiattolo),1,7
+starfish (stella marina),7,4
+stingray (razza),4,4
+swan (cigno),2,2
+termite (termite),6,5
+toad (rospo),5,6
+tortoise (tartaruga),3,6
+tuatara (tuatara),3,6
+tuna (tonno),4,4
+vampire (pipistrello vampiro),1,7
+vole (roditore),1,1
+vulture (avvoltoio),2,2
+wallaby (canguro),1,1
+wasp (vespa),6,5
+wolf (lupo),1,3
+worm (verme),7,4
+wren (uccello scricciolo),2,2

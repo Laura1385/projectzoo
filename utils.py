@@ -16,17 +16,18 @@ from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
 from sklearn.metrics import silhouette_samples
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.metrics.cluster import pair_confusion_matrix, rand_score
-from sklearn.metrics import confusion_matrix  ###usato o no?
 
 
+
+#Chose what you want: show, print or both input data
 def chose(csv):
     filepath = '1.Input/' + csv
     if csv == 'class.csv':
         df_class = pd.read_csv(filepath,sep=',')
-        df_zoo = None # se csv è 'class.csv', impostiamo df_zoo a None
+        df_zoo = None 
     elif csv == 'zoo.csv':
         df_zoo = pd.read_csv(filepath,sep=',') 
-        df_class = None # se csv è 'zoo.csv', impostiamo df_class a None
+        df_class = None 
     else:
         df_class = None
         df_zoo = None
@@ -46,13 +47,16 @@ def chose(csv):
         
     return df_class, df_zoo
     
-
+    
+#Only for aesthetic layout
 def border_msg(msg):
     row = len(msg)
     h = ''.join(['+'] + ['-' * row] + ['+'])
     result = h + '\n''|'+msg+'|' '\n' + h
     print(result)
-
+    
+    
+#Data analysis
 def analisys(file_scan):
     filepath = '1.Input/' + file_scan
     df = pd.read_csv(filepath,sep=',')
@@ -65,6 +69,8 @@ def analisys(file_scan):
     print(border_msg('Statistiche di base:'),' ',df.describe(), '\n')
     print(border_msg('Analisi variabili:'),'\n', df.nunique(), '\n\n')
     
+    
+#Data analysis report    
 def analisys_txt(file_scan):
     filepath = '1.Input/' + file_scan
     df = pd.read_csv(filepath,sep=',')
@@ -93,7 +99,9 @@ def analisys_txt(file_scan):
         f.write('\n----------------------------------------------------------------------\n\n')
         f.write('Analisi variabili:\n' + str(df.nunique()) + '\n\n')   
     print(f'\nIl file {namef} è stato creato nella cartella {folder}')
-
+    
+    
+#Correlation_matrix's graphic
 def correlation_matrix(df):
     #Import data
     data = df
@@ -106,38 +114,42 @@ def correlation_matrix(df):
     cmap = sns.color_palette('Spectral_r', as_cmap=True)
     dataplot = sns.heatmap(corr, mask=mask, center=0, annot=True, annot_kws={'size': 8}, fmt='.1f', cmap=cmap, linewidths=.35)
     plt.title('Correlation Matrix Animals', fontsize=15)
-    plt.savefig('3.Graphics/1.Correlation Matrix Animals.png')
+    plt.savefig('3.Graphics/Correlation Matrix Animals.png')
     plt.show()
+
     
+#Google tranlator   
 class TranslatorColumnRow:
     def __init__(self, filepath):
         self.filepath = filepath
         self.df = pd.read_csv(self.filepath, sep=',')
 
-        # init the Google translator
+        #init the Google translator
         self.translator = Translator()
 
-        # create animal's name list
+        #create animal's name list
         name_list = self.df['animal_name'].tolist()
 
         for index, name in enumerate(name_list):
-            # use translator object for animal's name translate, with translate() method, assigned to the translation variable
+            #use translator object for animal's name translate, with translate() method, assigned to the translation variable
             translation = self.translator.translate(name, dest="it")
             translation_lowercase = translation.text.lower()
-            # change the value of first column's dataframe, adding a string to the original animal name
+            #change the value of first column's dataframe, adding a string to the original animal name
             self.df.at[index, 'animal_name'] = f"{name} ({translation_lowercase})"
 
-        # create empty list
+        #create empty list
         new_columns = []
 
-        # translate column headers (the first row)
+        #translate column headers (the first row)
         for col in self.df.columns:
             translation = self.translator.translate(col, dest="it")
             translation_lowercase = translation.text.lower()
-            # change the value of column names, adding a string to the original name
+            #change the value of column names, adding a string to the original name
             new_columns.append(f"{col} ({translation_lowercase})")
         self.df.columns = new_columns
-    
+
+        
+#Change incorrect translations in animal's name
 def update_animal_name(df, old_name, new_name):
     index = df.index[df['animal_name (nome_animale)'].str.startswith(old_name)]
     if len(index) > 0: #search name
@@ -147,13 +159,16 @@ def update_animal_name(df, old_name, new_name):
         print(f"Ho modificato '{old_value}' con '{new_full_name}' ")
     else:
         print(f"Nessun animale trovato che inizi con '{old_name}' ")
-
+        
+#Change inconsistent characteristics
 def modify_column(df, animal_column, column_to_modify, values_to_modify):
     for animal, value in values_to_modify.items():
         # values_to_modify is a dictionary with animal's name like keys to modify and their new values like value
         df.loc[df[animal_column] == animal, column_to_modify] = value
     print("Le modifiche indicate sono state apportate")
-        
+    
+    
+#T-Sne algoritm      
 def t_sne(data, n_components=2, n_iter=500, n_iter_without_progress=150, n_jobs=2, random_state=0):
     tsne = TSNE(n_components=n_components, 
            n_iter=n_iter, 
@@ -163,7 +178,9 @@ def t_sne(data, n_components=2, n_iter=500, n_iter_without_progress=150, n_jobs=
     data_reduced = tsne.fit_transform(data)
     return np.array(data_reduced)
     print(data_reduced)
+    
 
+#T-Sne algoritm's plot      
 def scatter_plot(X, c, title, cmap='Accent', marker='o', edgecolor=None, colorbar=True, ax=None):
     if ax is None:
         fig, ax = plt.subplots(figsize=(5, 4))
@@ -176,7 +193,9 @@ def scatter_plot(X, c, title, cmap='Accent', marker='o', edgecolor=None, colorba
         fig.colorbar(im, ax=ax)
     ax.set_title(title)
     return fig, ax
-   
+
+
+#K-Means algoritm    
 def km_clust(X, n_clusters, init, n_init=10, max_iter=300, tol=1e-4, random_state=0):
     kmeans = KMeans(n_clusters=n_clusters, 
                     init=init, n_init=n_init, 
@@ -187,18 +206,19 @@ def km_clust(X, n_clusters, init, n_init=10, max_iter=300, tol=1e-4, random_stat
     print(f"Etichette univoche dei cluster: {np.unique(y_km_clustering)}")
     return kmeans, y_km_clustering
 
-def plot_kmean(X, labels, centroids, title, ax=None):
+
+#K-Means algoritm's plot    
+def plot_kmeans(X, labels, centroids, title, ax=None):
     if ax is None:
         fig, ax = plt.subplots(figsize=(5, 4))
     else:
         fig = ax.get_figure()
     ax.set_title(title)
-    for label in np.unique(labels):
-        ax.scatter(
-            *X[labels == label].T,
+    sc = ax.scatter(
+            *X.T,
             marker='o',
             s=60,
-            color=plt.cm.tab10(label),
+            c=labels, cmap=plt.cm.tab20,
             alpha=0.8,
         )
     if len(centroids) > 0:
@@ -209,14 +229,18 @@ def plot_kmean(X, labels, centroids, title, ax=None):
         )
     ax.legend()
     ax.set_xticks([])
-    ax.set_yticks([])  
-
+    ax.set_yticks([])
+    fig.colorbar(sc)
+    
+    
+#Extract algoritm's results*   
 def results_group(data, df, y, nome_algoritmo):
     #find animal's name inside each cluster
     results = []
     for index, a in enumerate(data):
         #results.append('{},{}'.format(df_new2.loc[index,'animal_name (nome_animale)'], y_km_clustering[index]))
-        results.append(f"{df.loc[index, 'animal_name (nome_animale)']},{y[index]}")
+        #results.append(f"{df.loc[index, 'animal_name (nome_animale)']},{y[index]}")
+        results.append(f"{df.iloc[index, 0]},{y[index]}")
     #print(results)
 
     #tuple lists with data split in name e cluster
@@ -235,7 +259,8 @@ def results_group(data, df, y, nome_algoritmo):
             print(x)
         print('Totale:', len(gruppo),'\n')   
     return df_cl  
-    
+
+#Silhouette's plot   
 def plot_silhouette(X, kmeans, title='Silhouette Plot'):
     cluster_labels = np.unique(kmeans.labels_) #array of labels
     n_clusters =  len(cluster_labels)
@@ -264,6 +289,8 @@ def plot_silhouette(X, kmeans, title='Silhouette Plot'):
     plt.show()
     print('Media:%.3f' % silhouette_avg)  
     
+    
+#Agglomerative clustering's algoritm    
 def agglomerative_clust(X, linkage, n_clusters=7, affinity='euclidean'):
     ac = AgglomerativeClustering(n_clusters=n_clusters,
                                  affinity=affinity,
@@ -272,6 +299,8 @@ def agglomerative_clust(X, linkage, n_clusters=7, affinity='euclidean'):
     print(f"Etichette univoche dei cluster: {np.unique(y_ac_blob)}")
     return ac, y_ac_blob
 
+
+#DBScan's algoritm  
 def dbscan_clust(X, eps= 0.5, min_samples= 5, metric='euclidean'):
     dbscan = DBSCAN(eps=eps, 
                     min_samples=min_samples, 
@@ -280,25 +309,31 @@ def dbscan_clust(X, eps= 0.5, min_samples= 5, metric='euclidean'):
     print(f"Etichette univoche dei cluster: {np.unique(labels)}")
     return dbscan, labels
 
+
+#Data's merge*
 def merge(df, results, namecsv=''):   
-    #merge real value from df_zoo e predict value from alforitm's results
+    #merge real value from df_zoo e predict value from algoritm's results
     df_real = df.iloc[:, [0, -1]]
-    df_real = df_real.rename(columns={'animal_name (nome_animale)': 'Animal', 'class_type (tipo_classe)': 'Real Labels'})
+    num_cols = len(df_real.columns)
+    df_real = df_real.rename(columns={df_real.columns[0]: 'Animal', df_real.columns[num_cols-1]: 'Real Labels'})
+    #df_real = df_real.rename(columns={'animal_name (nome_animale)': 'Animal', 'class_type (tipo_classe)': 'Real Labels'})
 
     df_pred = results.copy()
     df_pred['Pred Labels'] = df_pred['Pred Labels'].astype('int64')
     
     dfmerged = pd.merge(df_real, df_pred, on='Animal')
-    dfmerged_ord = dfmerged.sort_values('Real Labels') #sort value
+    #dfmerged_ord = dfmerged.sort_values('Real Labels') #sort value
     
     namecsv = namecsv + '.csv'
     namefolder = '4.Merge'
     path = os.path.join(namefolder, namecsv)
-    dfmerged_ord.to_csv(path, index=False)
+    dfmerged.to_csv(path, index=False)
     
     print('Esportato file', namecsv,'nella cartella', namefolder,'del progetto')
-    return dfmerged_ord
+    return dfmerged
 
+
+#Data's merge plot
 def plot_res(dfmerge, title, ax=None):
     X_features = dfmerge.iloc[: , 0]
     y_real= dfmerge.iloc[ :, -2] #The Y Label REAL
@@ -321,60 +356,137 @@ def plot_res(dfmerge, title, ax=None):
     ax.scatter(X_features, y_predicted, color='orange')
     ax.legend(fontsize=17)
     #plt.show()
-    return y_real, y_predicted
+    #return y_real, y_predicted
 
-def accurancy(y_real, y_predicted):
-    acc = accuracy_score(y_real, y_predicted)
-    print("Accuratezza: {:.3f}".format(acc))
-    return acc
+    
+#Data's merge order plot order by real labels  
+def plot_res_ord(dfmerge, title, ax=None):
+    dfmerge_ord = dfmerge.sort_values('Real Labels') #sort value
+    X_features = dfmerge_ord.iloc[: , 0]
+    y_real= dfmerge_ord.iloc[ :, -2] #The Y Label REAL
+    y_predicted= dfmerge_ord.iloc[ :, -1] #The predicted Y-label
+    
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(17, 3))
+        fig.set_size_inches(17,3)
+    else:
+        fig = ax.get_figure()
+     
+    ax.plot(X_features, y_real, color='blue',label='Real')
+    ax.plot(X_features, y_predicted, color='orange',label='Predict')
+    ax.tick_params(axis='x', rotation=90, labelsize=8)
+    ax.set_title(title, fontsize=18)
+    ax.set_xlabel('Animal', fontsize=10)
+    ax.set_ylabel('Cluster', fontsize=10)
+    #add point for each x values
+    ax.scatter(X_features, y_real, color='blue')
+    ax.scatter(X_features, y_predicted, color='orange')
+    ax.legend(fontsize=17)
+    #plt.show()
+    #return y_real, y_predicted
+    
+#Real labels plot
+def plot_res_real(dfmerge, title, ax=None):
+    dfmerge_ord = dfmerge.sort_values('Real Labels') #sort value
+    X_features = dfmerge_ord.iloc[: , 0]
+    y_real= dfmerge_ord.iloc[ :, -2] #The Y Label REAL
+    y_predicted= dfmerge_ord.iloc[ :, -1] #The predicted Y-label
+    
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(17, 3))
+        fig.set_size_inches(17,3)
+    else:
+        fig = ax.get_figure()
+     
+    ax.plot(X_features, y_real, color='blue',label='Real')
+    ax.tick_params(axis='x', rotation=90, labelsize=8)
+    ax.set_title(title, fontsize=18)
+    ax.set_xlabel('Animal', fontsize=10)
+    ax.set_ylabel('Cluster', fontsize=10)
+    #add point for each x values
+    ax.scatter(X_features, y_real, color='blue')
+    ax.legend(fontsize=17)
+    #plt.show()
+    
+#Predict labels plot
+def plot_res_pred(dfmerge, title, ax=None):
+    dfmerge_ord = dfmerge.sort_values('Pred Labels') #sort value
+    X_features = dfmerge_ord.iloc[: , 0]
+    y_real= dfmerge_ord.iloc[ :, -2] #The Y Label REAL
+    y_predicted= dfmerge_ord.iloc[ :, -1] #The predicted Y-label
+    
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(17, 3))
+        fig.set_size_inches(17,3)
+    else:
+        fig = ax.get_figure()
+     
+    ax.plot(X_features, y_predicted, color='orange',label='Predict')
+    ax.tick_params(axis='x', rotation=90, labelsize=8)
+    ax.set_title(title, fontsize=18)
+    ax.set_xlabel('Animal', fontsize=10)
+    ax.set_ylabel('Cluster', fontsize=10)
+    #add point for each x values
+    ax.scatter(X_features, y_predicted, color='orange')
+    ax.legend(fontsize=17)
+    #plt.show()
 
-def pair_conf_matrix(y_real, y_predicted, name):
+#Pair confusion matrix
+def pair_conf_matrix(dfmerge, name):
+    X_features = dfmerge.iloc[: , 0]
+    y_real= dfmerge.iloc[ :, -2] #The Y Label REAL
+    y_predicted= dfmerge.iloc[ :, -1] #The predicted Y-label
+    
     PCM = pair_confusion_matrix(y_real, y_predicted)
-    print(f'Pair confusion Matrix of {name}\n{PCM}\n')
-    RandIndex = rand_score(y_real, y_predicted)
+    print(f'Pair confusion Matrix of\n{name}\n{PCM}\n')
+    rand_index = rand_score(y_real, y_predicted)
     TN = PCM[0][0]
     FP = PCM[0][1]
     FN = PCM[1][0]
     TP = PCM[1][1]
-    Precision = TP/(TP+FP)
-    Recall = TP/(TP+FN)
-    F1 = 2*Precision*Recall/(Precision+Recall)
-    print(f'Rand index: {RandIndex:.3f}')
-    print(f'Precision: {Precision:.3f}')
-    print(f'Recall: {Recall:.3f}')
-    print(f'F1: {F1:.3f}')
+    precision = TP/(TP+FP)
+    recall = TP/(TP+FN)
+    f1 = 2*precision*recall/(precision+recall)
+    #print(f'Rand index: {rand_index:.3f}')
+    #print(f'Precision: {precision:.3f}')
+    #print(f'Recall: {recall:.3f}')
+    #print(f'F1: {f1:.3f}')
+    return rand_index, precision, recall, f1
 
-    fig, axs = plt.subplots(ncols=2, figsize=(10, 5))
 
-    # Plot confusion matrix as a heatmap
-    im = axs[0].imshow(PCM, cmap='coolwarm')
-    axs[0].set_title(name)
-    plt.colorbar(im, ax=axs[0])
-
-    # Plot precision and recall as bar charts
-    data = {'Precision': Precision, 'Recall': Recall}
-    axs[1].bar(data.keys(), data.values())
-    axs[1].set_ylim(0, 1)
-    axs[1].set_title('Precision and Recall')
-
-    plt.show()
+#Plot of values pair conf matrix 
+def values_pair_conf_matrix(rand_index, precision, recall, f1, title, ax=None):
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(5, 4))
+    else:
+        fig = ax.get_figure()
+    ax.set_title(title, fontsize=10)
+    data = {'R_index': rand_index, 'Precision': precision, 'Recall': recall, 'F1': f1 }
+    colors = ['green', 'yellow', 'red', 'blue']
+    ax.set_title(title)
+    bars = ax.bar(data.keys(), data.values(), color=colors)
+    ax.set_ylim(0, 1)
+    for bar in bars:
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height, round(height, 2), ha='center', va='bottom', fontsize=7)
     
-'''
-def eval_pair_confusion_matrix(y_real, y_predicted, name):
-    print(f'Values Pair confusion Matrix of {name}')
-    PCM = pair_confusion_matrix(y_real, y_predicted)
-    RandIndex = rand_score(y_real, y_predicted)
-    TN = PCM[0][0]
-    FP = PCM[0][1]
-    FN = PCM[1][0]
-    TP = PCM[1][1]
-    Precision = TP/(TP+FP)
-    Recall = TP/(TP+FN)
-    F1 = 2*Precision*Recall/(Precision+Recall)
-    print(f'Pair confusion matrix: \n {PCM}')
-    print(f'Rand index: {RandIndex}')
-    print(f'Precision: {Precision}')
-    print(f'Recall: {Recall}')
-    print(f'F1: {F1}')
-'''
+
+#Agglomerative cluster's verical graphics (only for Report_zoo.pdf)
+def plot_res_vertical(dfmerge, title, ax=None):
+    dfmerge_ord = dfmerge.sort_values('Real Labels') #sort value
+    X_features = dfmerge_ord.iloc[: , 0]
+    y_real= dfmerge_ord.iloc[ :, -2] #The Y Label REAL
+    y_predicted= dfmerge_ord.iloc[ :, -1] #The predicted Y-label
     
+    fig, ax = plt.subplots(figsize=(7, 17))
+    plt.subplots_adjust(left=0.5, top=0.95, bottom=0.05)
+    ax.plot(y_real, X_features, color='blue',label='Real')
+    ax.plot(y_predicted, X_features, color='orange',label='Predict')
+    ax.tick_params(axis='x', rotation=0, labelsize=8)
+    ax.set_title(title, fontsize=10)
+    ax.set_ylabel('Animal', fontsize=10)
+    ax.set_xlabel('Cluster', fontsize=10)
+    #add point for each x values
+    ax.scatter(y_real, X_features, color='blue')
+    ax.scatter(y_predicted, X_features, color='orange')
+    ax.legend(fontsize=10)   
