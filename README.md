@@ -19,7 +19,7 @@ Funzioni --> utils.py
 Notebook jupyter --> main.ipynb
 Notebook jupyter --> mainNoTranslator.ipynb (versione del progetto senza l'uso della libreria googletrans*)
 
-Documentazione --> report_zoo.pdf
+Documentazione --> Report_zoo.pdf
 
 1.Input --> Folder con i dati originali analizzati
 2.Report --> Folder con i report delle analisi preliminari sui dati
